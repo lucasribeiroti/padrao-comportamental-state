@@ -21,28 +21,28 @@ public class ConexaoRedeTest {
     public void deveConectarQuandoDesconectado() {
         conexao.setEstado(EstadoDesconectado.getInstance());
         assertTrue(conexao.conectar());
-        assertEquals(EstadoConectado.getInstance(), conexao.getEstado());
+        assertEquals("Conectado", conexao.getEstado());
     }
 
     @Test
     public void naoDeveDesconectarQuandoDesconectado() {
         conexao.setEstado(EstadoDesconectado.getInstance());
         assertFalse(conexao.desconectar());
-        assertEquals(EstadoDesconectado.getInstance(), conexao.getEstado());
+        assertEquals("Desconectado", conexao.getEstado());
     }
 
     @Test
     public void naoDeveFalharConexaoQuandoDesconectado() {
         conexao.setEstado(EstadoDesconectado.getInstance());
         assertFalse(conexao.falhaConexao());
-        assertEquals(EstadoDesconectado.getInstance(), conexao.getEstado());
+        assertEquals("Desconectado", conexao.getEstado());
     }
 
     @Test
     public void naoDeveReconectarQuandoDesconectado() {
         conexao.setEstado(EstadoDesconectado.getInstance());
         assertFalse(conexao.reconectar());
-        assertEquals(EstadoDesconectado.getInstance(), conexao.getEstado());
+        assertEquals("Desconectado", conexao.getEstado());
     }
 
     // Estado Conectado
@@ -51,28 +51,28 @@ public class ConexaoRedeTest {
     public void deveDesconectarQuandoConectado() {
         conexao.setEstado(EstadoConectado.getInstance());
         assertTrue(conexao.desconectar());
-        assertEquals(EstadoDesconectado.getInstance(), conexao.getEstado());
+        assertEquals("Desconectado", conexao.getEstado());
     }
 
     @Test
     public void deveFalharConexaoQuandoConectado() {
         conexao.setEstado(EstadoConectado.getInstance());
         assertTrue(conexao.falhaConexao());
-        assertEquals(EstadoFalhaConexao.getInstance(), conexao.getEstado());
+        assertEquals("Falha de Conexão", conexao.getEstado());
     }
 
     @Test
     public void naoDeveConectarQuandoConectado() {
         conexao.setEstado(EstadoConectado.getInstance());
         assertFalse(conexao.conectar());
-        assertEquals(EstadoConectado.getInstance(), conexao.getEstado());
+        assertEquals("Conectado", conexao.getEstado());
     }
 
     @Test
     public void naoDeveReconectarQuandoConectado() {
         conexao.setEstado(EstadoConectado.getInstance());
         assertFalse(conexao.reconectar());
-        assertEquals(EstadoConectado.getInstance(), conexao.getEstado());
+        assertEquals("Conectado", conexao.getEstado());
     }
 
     // Estado Falha de Conexão
@@ -81,28 +81,28 @@ public class ConexaoRedeTest {
     public void deveReconectarQuandoFalhaConexao() {
         conexao.setEstado(EstadoFalhaConexao.getInstance());
         assertTrue(conexao.reconectar());
-        assertEquals(EstadoReconectando.getInstance(), conexao.getEstado());
+        assertEquals("Reconectando", conexao.getEstado());
     }
 
     @Test
     public void deveConectarQuandoFalhaConexao() {
         conexao.setEstado(EstadoFalhaConexao.getInstance());
         assertTrue(conexao.conectar());
-        assertEquals(EstadoConectado.getInstance(), conexao.getEstado());
+        assertEquals("Conectado", conexao.getEstado());
     }
 
     @Test
     public void naoDeveFalharConexaoQuandoFalhaConexao() {
         conexao.setEstado(EstadoFalhaConexao.getInstance());
         assertFalse(conexao.falhaConexao());
-        assertEquals(EstadoFalhaConexao.getInstance(), conexao.getEstado());
+        assertEquals("Falha de Conexão", conexao.getEstado());
     }
 
     @Test
     public void naoDeveDesconectarQuandoFalhaConexao() {
         conexao.setEstado(EstadoFalhaConexao.getInstance());
         assertFalse(conexao.desconectar());
-        assertEquals(EstadoFalhaConexao.getInstance(), conexao.getEstado());
+        assertEquals("Falha de Conexão", conexao.getEstado());
     }
 
     // Estado Reconectando
@@ -111,27 +111,27 @@ public class ConexaoRedeTest {
     public void deveConectarQuandoReconectando() {
         conexao.setEstado(EstadoReconectando.getInstance());
         assertTrue(conexao.conectar());
-        assertEquals(EstadoConectado.getInstance(), conexao.getEstado());
+        assertEquals("Conectado", conexao.getEstado());
     }
 
     @Test
     public void deveFalharConexaoQuandoReconectando() {
         conexao.setEstado(EstadoReconectando.getInstance());
         assertTrue(conexao.falhaConexao());
-        assertEquals(EstadoFalhaConexao.getInstance(), conexao.getEstado());
+        assertEquals("Falha de Conexão", conexao.getEstado());
     }
 
     @Test
     public void naoDeveReconectarQuandoReconectando() {
         conexao.setEstado(EstadoReconectando.getInstance());
         assertFalse(conexao.reconectar());
-        assertEquals(EstadoReconectando.getInstance(), conexao.getEstado());
+        assertEquals("Reconectando", conexao.getEstado());
     }
 
     @Test
     public void naoDeveDesconectarQuandoReconectando() {
         conexao.setEstado(EstadoReconectando.getInstance());
         assertFalse(conexao.desconectar());
-        assertEquals(EstadoReconectando.getInstance(), conexao.getEstado());
+        assertEquals("Reconectando", conexao.getEstado());
     }
 }

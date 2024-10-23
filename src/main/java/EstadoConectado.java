@@ -4,6 +4,7 @@ public class EstadoConectado extends EstadoConexao {
 
     private EstadoConectado() {}
     private static EstadoConectado instance = new EstadoConectado();
+
     public static EstadoConectado getInstance() {
         return instance;
     }
@@ -18,6 +19,7 @@ public class EstadoConectado extends EstadoConexao {
     }
 
     public boolean falhaConexao(ConexaoRede conexao) {
+        conexao.setEstado(EstadoFalhaConexao.getInstance());
         return true;
     }
 }

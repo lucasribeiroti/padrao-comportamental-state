@@ -15,6 +15,7 @@ public class EstadoReconectando extends EstadoConexao {
     }
 
     public boolean falhaConexao(ConexaoRede conexao) {
+        conexao.setEstado(EstadoFalhaConexao.getInstance());
         return true;
     }
 
